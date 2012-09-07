@@ -128,7 +128,8 @@ public:
   {
     if (type == "SharedObjectModule" 
         || type == "CommandLineModule"
-        || type == "PythonModule")
+        || type == "PythonModule"
+        || type == "CloudModule")
       {
       this->Type = type;
       }
@@ -152,7 +153,8 @@ public:
   {
     if (type == "SharedObjectModule" 
         || type == "CommandLineModule"
-        || type == "PythonModule")
+        || type == "PythonModule"
+        || type == "CloudMoudle")
       {
       this->AlternativeType = type;
       }

@@ -137,6 +137,9 @@ protected:
   /// Scan for files which are known (by exclusion) to not be modules
   virtual long ScanForNotAModuleFiles();
 
+  /// Scan for modules that can be run remotely on another machine
+  virtual long ScanForCloudModules();
+
   /// Get the logo for a command line module
   virtual void GetLogoForCommandLineModuleByExecuting(ModuleDescription&);
   

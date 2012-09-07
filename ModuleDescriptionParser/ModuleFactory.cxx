@@ -209,7 +209,7 @@ struct ModuleCacheEntry
 {
   std::string Location;        // complete path to a file
   long int ModifiedTime;    // file's modified time
-  std::string Type;            // SharedObjectModule, CommandLineModule, PythonModule, NotAModule
+  std::string Type;            // SharedObjectModule, CommandLineModule, PythonModule, CloudModule, NotAModule
 //  std::string Title;           // name of the module
   std::string XMLDescription;  // Module description
   int LogoWidth;
@@ -373,6 +373,7 @@ void ModuleFactory::Scan()
   int numberOfShared = this->ScanForSharedObjectModules();
   int numberOfPeekedExecutables = this->ScanForCommandLineModulesByPeeking();
   int numberOfExecutables = this->ScanForCommandLineModulesByExecuting();
+  int numberOfCloudModules = this->ScanForCloudModules();
   int numberOfPython = 0;
 #ifdef ModuleDescriptionParser_USE_PYTHON
   // Be sure that python is initialized
@@ -2028,6 +2029,12 @@ long ModuleFactory::ScanForPythonModulesByLoading()
 }
 
 //-----------------------------------------------------------------------------
+// Query the server to obtain a catelog for cloud modules 
+long ModuleFactory::ScanForCloudModules()
+{
+}
+
+//-----------------------------------------------------------------------------
 void ModuleFactory::LoadModuleCache()
 {
   std::stringstream information;
@@ -2273,6 +2280,13 @@ int ModuleFactory ::GetModuleFromCache(const std::string &commandName,
           {
           std::string moduleName
             = itksys::SystemTools::GetFilenameWithoutExtension( commandName );
+          module.SetTarget( moduleName );
+          }
+        else if (type == "CloudModule")
+          {
+	  std::string moduleName
+            = itksys::SystemTools::GetFileNameWithoughExtension( commandName );
+          moduleName.append( "OnCloud" );
           module.SetTarget( moduleName );
           }
         else
