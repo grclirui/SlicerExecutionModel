@@ -2285,7 +2285,7 @@ int ModuleFactory ::GetModuleFromCache(const std::string &commandName,
         else if (type == "CloudModule")
           {
 	  std::string moduleName
-            = itksys::SystemTools::GetFileNameWithoutExtension( commandName );
+            = itksys::SystemTools::GetFilenameWithoutExtension( commandName );
           moduleName.append( "OnCloud" );
           module.SetTarget( moduleName );
           }
