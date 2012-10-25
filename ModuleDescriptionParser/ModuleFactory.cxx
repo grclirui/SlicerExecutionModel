@@ -2032,6 +2032,10 @@ long ModuleFactory::ScanForPythonModulesByLoading()
 // Query the server to obtain a catelog for cloud modules 
 long ModuleFactory::ScanForCloudModules()
 {
+  // connect to server
+
+  // query for availabe cloud modules
+
 }
 
 //-----------------------------------------------------------------------------

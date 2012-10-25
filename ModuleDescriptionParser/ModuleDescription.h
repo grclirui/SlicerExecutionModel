@@ -154,7 +154,7 @@ public:
     if (type == "SharedObjectModule" 
         || type == "CommandLineModule"
         || type == "PythonModule"
-        || type == "CloudMoudle")
+        || type == "CloudModule")
       {
       this->AlternativeType = type;
       }
