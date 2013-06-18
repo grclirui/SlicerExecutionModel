@@ -210,6 +210,7 @@ struct ModuleCacheEntry
   std::string Location;        // complete path to a file
   long int ModifiedTime;    // file's modified time
   std::string Type;            // SharedObjectModule, CommandLineModule, PythonModule, CloudModule, NotAModule
+  std::string AlternativeType;
 //  std::string Title;           // name of the module
   std::string XMLDescription;  // Module description
   int LogoWidth;
@@ -461,6 +462,7 @@ long ModuleFactory::ScanForNotAModuleFiles()
           entry.Location = fullFilename;
           entry.ModifiedTime = fileModifiedTime;
           entry.Type = "NotAModule";
+          entry.AlternativeType ="NotAModule"
           entry.XMLDescription = "None";
           entry.LogoWidth = 0;
           entry.LogoHeight = 0;
