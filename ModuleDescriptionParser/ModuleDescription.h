@@ -128,7 +128,8 @@ public:
   {
     if (type == "SharedObjectModule" 
         || type == "CommandLineModule"
-        || type == "PythonModule")
+        || type == "PythonModule"
+        || type == "CloudModule")
       {
       this->Type = type;
       }
@@ -152,7 +153,8 @@ public:
   {
     if (type == "SharedObjectModule" 
         || type == "CommandLineModule"
-        || type == "PythonModule")
+        || type == "PythonModule"
+        || type == "CloudModule")
       {
       this->AlternativeType = type;
       }
@@ -263,6 +265,11 @@ public:
   // Does the module have any simple (primitive) return types?
   bool HasReturnParameters() const;
 
+  /// Search the list of parameters and return a copy of the parameters
+  /// that have the same \a defaultValue.
+  /// \sa HasParameter(), HasReturnParameters(), GetParameterDefaultValue()
+  std::vector<ModuleParameter> FindParametersWithDefaultValue(
+    const std::string& defaultvalue)const;
   bool SetParameterDefaultValue(const std::string& name,
                                 const std::string& value);
 
